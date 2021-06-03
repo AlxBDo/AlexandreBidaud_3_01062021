@@ -1,0 +1,9 @@
+button {
+    @extend .click;
+	background: linear-gradient(to bottom, #ff79da 0%,#9356dc 100%);
+	border: none;
+	color: white;
+	font-size: medium;
+	border-radius: 30px;
+	box-shadow: 3px 5px 3px lightgray;
+}

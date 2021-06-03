@@ -1,0 +1,82 @@
+#fonctionnement {
+    margin: 12% auto 17%;
+    
+    > div {
+        @extend .bg-clair;
+        @extend .click;
+        margin: 5% auto;
+        max-width: 85%;
+        padding: 7% 0%;
+        border-radius: 25px;
+        box-shadow: 1px 3px 8px lightgray;
+        text-align: left;
+        position: relative;
+
+        &::after {
+            content: "";
+            background-color: $color-primary;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            border-radius: 27px;
+        }
+
+        &:first-of-type{
+            &::before {
+                content: "1";
+            }
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.85);
+            i {
+                color: $color-primary;
+            }
+        }
+
+        &:nth-of-type(2){
+            &::before {
+                content: "2";
+            }
+        }
+
+        &:nth-of-type(3){
+            &::before {
+                content: "3";
+            }
+        }
+
+        &::before {
+            padding: 6px 10px;
+            border-radius: 20px;
+            background-color: $color-primary;
+            color: white;
+            font-size: small;
+            float: left;
+            margin: -2px 7px 0 -14px;
+        }
+    }
+
+    h2 {
+        text-align: left;
+        margin-left: 5%;
+        margin-top: 10%;
+    }
+
+    i {
+        width: 15%;
+        text-align: center; 
+        font-size: larger;
+        color: gray;
+    }
+
+    p {
+        display: inline-block;
+        margin: 0 auto;
+        width: 60%;
+    }
+
+}

@@ -1,0 +1,247 @@
+.bg-clair, #restos, #search > div, #fonctionnement > div {
+  background-color: #f6f6f6;
+}
+
+.click, input, button, #search input, #fonctionnement > div {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#fonctionnement {
+  margin: 12% auto 17%;
+}
+#fonctionnement > div {
+  margin: 5% auto;
+  max-width: 85%;
+  padding: 7% 0%;
+  border-radius: 25px;
+  box-shadow: 1px 3px 8px lightgray;
+  text-align: left;
+  position: relative;
+}
+#fonctionnement > div::after {
+  content: "";
+  background-color: #9356DC;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 27px;
+}
+#fonctionnement > div:first-of-type::before {
+  content: "1";
+}
+#fonctionnement > div:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+#fonctionnement > div:hover i {
+  color: #9356DC;
+}
+#fonctionnement > div:nth-of-type(2)::before {
+  content: "2";
+}
+#fonctionnement > div:nth-of-type(3)::before {
+  content: "3";
+}
+#fonctionnement > div::before {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background-color: #9356DC;
+  color: white;
+  font-size: small;
+  float: left;
+  margin: -2px 7px 0 -14px;
+}
+#fonctionnement h2 {
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 10%;
+}
+#fonctionnement i {
+  width: 15%;
+  text-align: center;
+  font-size: larger;
+  color: gray;
+}
+#fonctionnement p {
+  display: inline-block;
+  margin: 0 auto;
+  width: 60%;
+}
+
+#search form {
+  background: linear-gradient(to bottom, #cfcfcf 0%, #eaeaea 10%, #eaeaea 100%);
+  display: flex;
+  color: #353535;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  justify-content: center;
+}
+
+header {
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+header picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search {
+  display: flex;
+  flex-direction: column;
+}
+#search > div div {
+  max-width: 80%;
+  margin: auto;
+  font-weight: lighter;
+}
+#search button {
+  padding: 4% 7% 5%;
+  margin: 7% auto 13%;
+}
+#search h2 {
+  max-width: 70%;
+  margin: 10% auto 5%;
+}
+#search input {
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  background-color: transparent;
+  text-align: center;
+  padding: 0;
+  color: #353535;
+}
+#search input:focus-visible {
+  outline: none;
+}
+
+#restos {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15%;
+}
+#restos a {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  overflow: hidden;
+  margin: 2% auto 3%;
+  height: 25%;
+  background-color: white;
+  border-radius: 20px;
+  max-height: 225px;
+  box-shadow: 1px 1px 5px lightgray;
+  position: relative;
+}
+#restos div {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#restos div p:first-of-type {
+  text-align: left;
+  width: 70%;
+}
+#restos div p:nth-of-type(2) {
+  width: 28px;
+  overflow: hidden;
+  height: 39px;
+  margin-right: 2%;
+  background-image: url("../img/icons/fav.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#restos div p:nth-of-type(2):hover {
+  background-image: url("../img/icons/fav-slct.png");
+}
+#restos h2 {
+  text-align: left;
+  margin: 10% 5% 5%;
+}
+#restos i {
+  font-size: 23px;
+  display: block;
+  margin-bottom: 2px;
+}
+#restos i:last-of-type {
+  color: #9356DC;
+}
+#restos img {
+  width: 100%;
+  object-fit: cover;
+  height: 70%;
+}
+#restos .new::before {
+  content: "Nouveau";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #99e2d0;
+  padding: 7px 12px;
+  color: #38917b;
+  font-weight: bold;
+  font-size: small;
+  border-radius: 2px;
+}
+#restos span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+footer {
+  background-color: #353535;
+  color: white;
+  height: 100%;
+  margin: 15% 0 0;
+  padding: 2%;
+  text-align: left;
+}
+footer h1 {
+  font-family: "Shrikhand", cursive;
+  font-weight: normal;
+  font-size: large;
+  margin-left: 5%;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 5% 5% 10%;
+}
+footer ul li {
+  margin: 10px 0;
+  font-size: smaller;
+}
+footer ul i {
+  font-size: small;
+  width: 25px;
+}
+
+button {
+  background: linear-gradient(to bottom, #ff79da 0%, #9356dc 100%);
+  border: none;
+  color: white;
+  font-size: medium;
+  border-radius: 30px;
+  box-shadow: 3px 5px 3px lightgray;
+}
+
+/*# sourceMappingURL=style.css.map */
