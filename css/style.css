@@ -16,6 +16,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 #fonctionnement {
@@ -160,18 +161,6 @@ header picture {
   text-align: left;
   width: 70%;
 }
-#restos div p:nth-of-type(2) {
-  width: 28px;
-  overflow: hidden;
-  height: 39px;
-  margin-right: 2%;
-  background-image: url("../img/icons/fav.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-#restos div p:nth-of-type(2):hover {
-  background-image: url("../img/icons/fav-slct.png");
-}
 #restos h2 {
   text-align: left;
   margin: 10% 5% 5%;
@@ -188,6 +177,7 @@ header picture {
   width: 100%;
   object-fit: cover;
   height: 70%;
+  overflow: hidden;
 }
 #restos .new::before {
   content: "Nouveau";
@@ -205,6 +195,39 @@ header picture {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+}
+#restos .favori {
+  position: relative;
+  width: 28px;
+  overflow: hidden;
+  height: 39px;
+  margin-right: 2%;
+}
+#restos .favori::after, #restos .favori::before {
+  width: 28px;
+  height: 38px;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#restos .favori::after {
+  background-image: url("../img/icons/fav-slct.png");
+  transition: all 300ms ease-in-out;
+  transform: scale(0);
+  opacity: 0;
+}
+#restos .favori::before {
+  background-image: url("../img/icons/fav.png");
+}
+#restos .favori:hover::after {
+  transition: all 300ms ease-in-out;
+  opacity: 1;
+  transform: scale(1);
 }
 
 footer {
@@ -242,6 +265,141 @@ button {
   font-size: medium;
   border-radius: 30px;
   box-shadow: 3px 5px 3px lightgray;
+}
+
+body::after, body::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: scale(0);
+}
+body::after {
+  content: "ohmyfood";
+  z-index: 10;
+  font-size: xx-large;
+  margin: 50% auto;
+  padding: 25px;
+  font-family: "Shrikhand", cursive;
+  background: #9356DC;
+  width: 185px;
+  color: white;
+  height: 185px;
+  line-height: 185px;
+  border-radius: 120px;
+  border: 5px solid;
+  animation: loader_index 2700ms;
+}
+body::before {
+  content: "";
+  background-color: white;
+  z-index: 9;
+  bottom: 0;
+  animation-name: fin_loader;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  transform-origin: 50% 0%;
+}
+
+@keyframes fin_loader {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.9;
+  }
+  99% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes loader_index {
+  10% {
+    transform: scale(1);
+    opacity: 1;
+    border-top-color: #FF79DA;
+  }
+  5% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  10% {
+    transform: scale(0.8);
+    opacity: 0.8;
+    border-top-color: #99E2D0;
+  }
+  15% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  20% {
+    border-top-color: #99E2D0;
+    border-right-color: #FF79DA;
+  }
+  30% {
+    border-top-color: #99E2D0;
+    border-right-color: #99E2D0;
+  }
+  35% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.7);
+    opacity: 0.7;
+    border-top-color: #99E2D0;
+    border-right-color: #99E2D0;
+    border-bottom-color: #FF79DA;
+  }
+  45% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    border-top-color: #99E2D0;
+    border-right-color: #99E2D0;
+    border-bottom-color: #99E2D0;
+  }
+  60% {
+    opacity: 1;
+    border-top-color: #99E2D0;
+    border-right-color: #99E2D0;
+    border-bottom-color: #99E2D0;
+    border-left-color: #FF79DA;
+  }
+  65% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.6);
+    opacity: 0.6;
+    border-top-color: #99E2D0;
+    border-right-color: #99E2D0;
+    border-bottom-color: #99E2D0;
+    border-left-color: #99E2D0;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  80% {
+    border-color: #99E2D0;
+  }
+  90% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    border-color: #99E2D0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

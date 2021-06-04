@@ -29,19 +29,6 @@
                 text-align: left;
                 width: 70%; 
             }
-            &:nth-of-type(2) {
-                width: 28px;
-                overflow: hidden;
-                height: 39px;
-                margin-right: 2%;
-                background-image: url("../img/icons/fav.png");
-                background-repeat: no-repeat;
-                background-size: contain;
-
-                &:hover{
-                    background-image: url("../img/icons/fav-slct.png");
-                }
-            }
 
         }
     }
@@ -65,6 +52,7 @@
         width: 100%;
         object-fit: cover;
         height: 70%;
+        overflow: hidden;
     }
 
     .new::before {
@@ -85,4 +73,41 @@
         font-weight: bold;
         margin-bottom: 5px;
     }
+
+    .favori{
+        position: relative;
+        width: 28px;
+        overflow: hidden;
+        height: 39px;
+        margin-right: 2%;
+
+        &::after, &::before {
+            width: 28px;
+            height: 38px;
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        &::after {
+            background-image: url("../img/icons/fav-slct.png");
+            transition: all 300ms ease-in-out;
+            transform: scale(0);
+            opacity: 0;
+        }
+        &::before {
+            background-image: url("../img/icons/fav.png");
+        }
+
+        &:hover::after {
+            transition: all 300ms ease-in-out;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
 }
