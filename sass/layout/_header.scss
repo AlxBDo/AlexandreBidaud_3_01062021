@@ -1,8 +1,21 @@
-header {
-	padding-top: 5%;
-	padding-bottom: 2%;
-}
 header picture {
     @include center;
     
+}
+
+
+
+@media (max-width: 768px){
+	header {
+		padding-top: 5%;
+		padding-bottom: 2%;
+	}
+}
+
+
+
+@media (min-width: 1024px){
+	header {
+		padding: 2% 0;
+	}
 }

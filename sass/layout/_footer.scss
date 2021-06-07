@@ -2,13 +2,11 @@ footer {
 	background-color: map-get($bg-color, fonce);
 	color: white;
 	height: 100%;
-	margin: 15% 0 0;
 	padding: 2%;
 	text-align: left;
 
     h1{
-        font-family: 'Shrikhand', cursive;
-        font-weight: normal;
+        @extend .titre;
         font-size: large;
         margin-left: 5%;
     }
@@ -16,7 +14,6 @@ footer {
     ul {
         list-style: none;
         padding: 0;
-        margin: 5% 5% 10%;
 
         li{
             margin: 10px 0;
@@ -28,4 +25,21 @@ footer {
             width: 25px;
         }
     }
+}
+
+@media (max-width: 768px){
+    footer { 
+        margin: 15% 0 0; 
+        ul { margin: 5% 5% 10%; }
+    }
+}
+
+@media (min-width: 1024px){
+    footer {
+        ul li {
+            display: inline-block;
+            width: 23%;
+            text-align: center;
+        }
+      }
 }
