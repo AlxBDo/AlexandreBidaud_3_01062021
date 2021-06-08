@@ -1,4 +1,4 @@
-body{
+#accueil{
     &::after, &::before {
         position: absolute;
         top: 0;
@@ -253,7 +253,9 @@ body{
 }
 
 @media (max-width: 768px){
-  body::after { margin: 50% auto; }
+  #accueil{
+    &::after { margin: 50% auto; }
+  }
   #fonctionnement {
     margin: 12% auto 17%;
 

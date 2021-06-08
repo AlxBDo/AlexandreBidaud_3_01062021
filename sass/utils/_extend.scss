@@ -8,11 +8,17 @@
 
 .majuscule { text-transform: uppercase; }
 
+.menu-chcked {
+    transform: translateX(0px) rotate(360deg);
+    transition: translateX, rotate, 300ms, 400ms 200ms;
+}
+
 .menu-slct {
     background-color: map-get($color-new_box , bg);
     transition: all 300ms ease-in-out;
     transform: translateX(0px);
     margin-left: 0px;
+    margin-right: 0px;
 }
 .titre {
     font-family: 'Shrikhand', cursive;

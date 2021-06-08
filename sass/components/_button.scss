@@ -6,4 +6,9 @@ button {
 	font-size: medium;
 	border-radius: 30px;
 	box-shadow: 3px 5px 3px lightgray;
+
+	&:hover{
+		background: linear-gradient(to bottom, lighten(#ff79da, 5%) 0%,lighten(#9356dc, 5%) 100%);
+		box-shadow: 3px 5px 1px lightgray;
+	}
 }

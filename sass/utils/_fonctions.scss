@@ -1,0 +1,3 @@
+@function get-delay-anim($position, $position-depart){
+    @return ($position + $position-depart) * 150;
+}

@@ -1,21 +1,27 @@
 @charset "UTF-8";
-.bg-clair, #menu, #search > div, #restos, #fonctionnement > div {
+.bg-clair, .menu, #search > div, #restos, #fonctionnement > div {
   background-color: #f6f6f6;
 }
 
-.click, #menu a, #search input, #fonctionnement > div, .favori, input, button {
+.click, .menu a, #search input, #fonctionnement > div, .favori, input, button {
   cursor: pointer;
 }
 
-.majuscule, #menu h3, #main-header h2::first-letter {
+.majuscule, .menu h3, #main-header h2::first-letter {
   text-transform: uppercase;
 }
 
-.menu-slct, #menu a:hover::after, #menu a:active::after, #menu a:visited::after {
+.menu-chcked, .menu a:active::before, .menu a:visited::before, .menu a:hover::before {
+  transform: translateX(0px) rotate(360deg);
+  transition: translateX, rotate, 300ms, 400ms 200ms;
+}
+
+.menu-slct, .menu a:active::after, .menu a:visited::after, .menu a:hover::after {
   background-color: #99e2d0;
   transition: all 300ms ease-in-out;
   transform: translateX(0px);
   margin-left: 0px;
+  margin-right: 0px;
 }
 
 .titre, #main-header h2, footer h1 {
@@ -87,9 +93,6 @@ footer ul i {
 }
 
 @media (max-width: 768px) {
-  footer {
-    margin: 15% 0 0;
-  }
   footer ul {
     margin: 5% 5% 10%;
   }
@@ -109,15 +112,19 @@ button {
   border-radius: 30px;
   box-shadow: 3px 5px 3px lightgray;
 }
+button:hover {
+  background: linear-gradient(to bottom, #ff93e1 0%, #a16be0 100%);
+  box-shadow: 3px 5px 1px lightgray;
+}
 
-body::after, body::before {
+#accueil::after, #accueil::before {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   transform: scale(0);
 }
-body::after {
+#accueil::after {
   content: "ohmyfood";
   z-index: 10;
   font-size: xx-large;
@@ -132,7 +139,7 @@ body::after {
   border: 5px solid;
   animation: loader_index 2700ms;
 }
-body::before {
+#accueil::before {
   content: "";
   background-color: white;
   z-index: 9;
@@ -319,7 +326,7 @@ body::before {
 }
 
 @media (max-width: 768px) {
-  body::after {
+  #accueil::after {
     margin: 50% auto;
   }
 
@@ -528,17 +535,27 @@ body::before {
 .desc {
   width: 72%;
   margin-left: 3%;
+  min-width: 45%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .desc span {
   display: block;
   font-size: larger;
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 header a {
   position: absolute;
-  top: 4%;
-  left: 8%;
+  top: 0;
+  left: 0;
+  font-size: large;
+  margin-top: 6%;
+  margin-left: 6%;
 }
 
 #main-header {
@@ -547,8 +564,14 @@ header a {
   margin-top: 51%;
   align-items: center;
 }
+#main-header .favori {
+  height: 35px;
+  width: 35px;
+  transform: scaleY(1.2) scaleX(1.1);
+}
 #main-header h2, #main-header p {
   margin-top: 7%;
+  margin-bottom: 0;
 }
 #main-header h2 {
   width: 75%;
@@ -556,8 +579,7 @@ header a {
   font-weight: normal;
   font-size: xx-large;
 }
-#menu {
-  background-image: url(../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+.menu {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
@@ -565,7 +587,56 @@ header a {
   flex-direction: column;
   text-align: left;
 }
-#menu a {
+.menu#resto1 {
+  background-image: url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+}
+.menu#resto2 {
+  background-image: url("../img/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+  background-position-y: -100px;
+}
+.menu#resto3 {
+  background-image: url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+.menu#resto4 {
+  background-image: url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+}
+.menu button {
+  margin: 10% auto 20%;
+  padding: 4% 15%;
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+}
+.menu #entrees a:nth-of-type(1) {
+  animation: apparition 500ms 150ms backwards;
+}
+.menu #entrees a:nth-of-type(2) {
+  animation: apparition 500ms 300ms backwards;
+}
+.menu #entrees a:nth-of-type(3) {
+  animation: apparition 500ms 450ms backwards;
+}
+.menu #entrees a:nth-of-type(4) {
+  animation: apparition 500ms 600ms backwards;
+}
+.menu #plats a:nth-of-type(1) {
+  animation: apparition 500ms 450ms backwards;
+}
+.menu #plats a:nth-of-type(2) {
+  animation: apparition 500ms 600ms backwards;
+}
+.menu #plats a:nth-of-type(3) {
+  animation: apparition 500ms 750ms backwards;
+}
+.menu #desserts a:nth-of-type(1) {
+  animation: apparition 500ms 900ms backwards;
+}
+.menu #desserts a:nth-of-type(2) {
+  animation: apparition 500ms 1050ms backwards;
+}
+.menu #desserts a:nth-of-type(3) {
+  animation: apparition 500ms 1200ms backwards;
+}
+.menu a {
   width: 92%;
   margin: 2% auto;
   background-color: white;
@@ -575,38 +646,70 @@ header a {
   justify-content: space-between;
   overflow: hidden;
 }
-#menu a::after {
+.menu a::after {
   content: "";
-  transition: all 300ms ease-in-out;
-  transform: translateX(100px);
   width: 19%;
-  border-radius: 0px 15px 15px 0;
+  transform: translateX(100px);
   margin-left: -100px;
+  transition: all 300ms ease-in-out;
+  width: 20%;
+  margin-right: -66px;
 }
-#menu a:hover::after {
-  opacity: 0.9;
+.menu a::before {
+  content: "";
+  width: 19%;
+  transform: translateX(65px);
+  margin-left: -65px;
+  transition: all 300ms ease-in-out;
+  order: 1;
+  align-self: center;
+  text-align: center;
+  color: white;
+  z-index: 9;
+  background-image: url("../img/icons/checked-48.png");
+  height: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-#menu a:hover .price {
-  margin-left: -30px;
-}
-#menu h3 {
+.menu h3 {
   margin-left: 4%;
+  margin-bottom: 2%;
 }
-#menu section {
+.menu h3::after {
+  content: "";
+  border-bottom: 4px solid #99e2d0;
+  width: 14%;
+  display: block;
+  margin-top: 5px;
+}
+.menu section {
   background-color: inherit;
   display: flex;
 }
-#menu section:not(#main-header) {
+.menu section:not(#main-header) {
   flex-direction: column;
+  padding-top: 3%;
 }
 
 .price {
-  width: 14%;
-  align-self: self-end;
+  width: 15%;
+  align-self: flex-end;
   font-weight: bold;
 }
 .price::after {
   content: "€";
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
