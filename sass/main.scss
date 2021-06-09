@@ -3,6 +3,7 @@
 @import "./utils/fonctions";
 @import "./utils/mixin";
 @import "./utils/extend";
+@import "./utils/keyframes";
 
 @import "./base/base";
 
@@ -12,7 +13,6 @@
 
 @import "./components/button";
 @import "./components/input";
-@import "./components/titres";
 
 @import "./pages/index";
 @import "./pages/menu";

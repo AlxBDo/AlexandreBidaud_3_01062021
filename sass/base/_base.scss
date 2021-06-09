@@ -11,3 +11,8 @@ body{
     padding: 0;
     position: relative;
 }
+
+h1{ 
+    @extend .titre; 
+    margin: 0;
+}

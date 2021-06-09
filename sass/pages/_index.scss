@@ -19,7 +19,7 @@
         line-height: 185px;
         border-radius: 120px;
         border: 5px solid;
-        animation: loader_index 2700ms;
+        animation: cooking 2700ms both;
     }
     &::before {
         content: "";
@@ -81,18 +81,6 @@
       text-align: left;
       position: relative;
 
-      &::after {
-          content: "";
-          background-color: $color-primary;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: -1;
-          border-radius: 27px;
-      }
-
       &:first-of-type{
           &::before {
               content: "1";
@@ -100,7 +88,7 @@
       }
 
       &:hover {
-          background-color: rgba(255, 255, 255, 0.85);
+          background-color: rgba(147, 86, 220, 0.15);
           i {
               color: $color-primary;
           }
@@ -252,16 +240,11 @@
   }
 }
 
-@media (max-width: 768px){
-  #accueil{
-    &::after { margin: 50% auto; }
-  }
+@media (max-width: 599px){
   #fonctionnement {
     margin: 12% auto 17%;
 
     > div {
-      margin: 5% auto;
-      max-width: 85%;
       padding: 7% 0%;
     }
     h2 {
@@ -269,12 +252,9 @@
     }
   }
   #restos {
-    flex-direction: column;
     padding-bottom: 15%;  
 
     a {
-        width: 90%;
-        height: 25%;
         max-height: 225px;
     }
 
@@ -290,6 +270,59 @@
   }
 }
 
+@media (max-width: 1023px){
+  #accueil{
+    &::after { margin: 50% auto; }
+  }
+  #fonctionnement {
+    > div {
+      margin: 5% auto;
+      width: 85%;
+      max-width: 400px;
+    }
+  }
+  #restos { 
+    flex-direction: column;  
+
+    a {
+        width: 90%;
+        height: 25%;
+    }
+  }
+}
+
+@media(min-width: 600px) and (max-width: 1023px){
+  #search h2 {
+    margin: 5% auto;
+  }
+  #search button {
+    margin: 5% auto;
+    padding: 3% 5%;
+  }
+  #fonctionnement {
+    margin: 5% auto;
+  }
+  #fonctionnement h2 {
+    margin-top: 5%;
+  }
+  #fonctionnement > div {
+    padding: 4% 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  #fonctionnement p {
+    margin: 0;
+    width: 70%;
+  }
+  #restos {
+    margin: 10% 0 0;
+    padding-bottom: 10%; 
+
+    a { max-height: 325px; }
+    h2 { margin: 5%; }
+  }
+}
+
 @media (min-width: 1024px){
   body::after { margin: 20% auto; }
   #fonctionnement {
@@ -297,24 +330,27 @@
     display: flex;
     flex-direction: column;
     order: 1;
+    width: 35%;
+    min-width: 385px;
 
     > div {
       margin: 2% auto;
       width: 85%;
       padding: 5% 0%;
     }
+
+    h2 { margin-top: 0; }
   }
   #fonctionnement, #search {
-    width: 48%;
-    max-width: 650px;
+    margin-bottom: 3%;
   }
   main {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
-    align-items: center;
+    align-items: flex-start;
     align-content: space-around;
     overflow: hidden;
   }
@@ -338,109 +374,15 @@
     background-color: #f6f6f6;
     border-radius: 15px;
     overflow: hidden;
+    width: 50%;
+    button { margin: 5% auto; }
 
     > div {
       padding: 3%;
       max-width: 94%;
     }
-    button { margin: 5% auto; }
-    form { order: 1; }
     h2 {
-        text-align: left;
         margin: 2%;
     }
   }
 }
-
-@keyframes fin_loader {
-    0% { transform: scale(1); }
-    80% { opacity: 0.9; }
-    99% { transform: scale(1); }
-    100% {
-      transform: scale(0);
-      opacity: 0;
-    }
-}
-
-@keyframes loader_index {
-    0%{ 
-      transform: scale(1); 
-      opacity: 1;
-    }
-    5%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    10%{ 
-      transform: scale(0.8); 
-      opacity: 0.8;
-      border-top-style: dashed;
-      border-top-color: #FF79DA;
-    }
-    15%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    20%{
-      border-right-color: #FF79DA;
-      border-right-style: dashed;
-    }
-    30%{
-      border-bottom-color: #FF79DA;
-      border-bottom-style: dashed;
-    }
-    35%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    40%{
-      transform: scale(0.7);
-      opacity: 0.7;
-      border-left-color: #FF79DA;
-      border-left-style: dashed;
-    }
-    45%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    50%{
-      opacity: 1;
-      border-top-color: #99E2D0;
-      border-top-style: dotted;
-    }
-    60%{
-      opacity: 1;
-      border-right-color: #99E2D0;
-      border-right-style: dotted;
-    }
-    65%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    70%{
-      transform: scale(0.6);
-      opacity: 0.6;
-      border-bottom-color: #99E2D0;
-      border-bottom-style: dotted;
-    }
-    75%{
-      transform: scale(1); 
-      opacity: 1;
-    }
-    80%{
-      border-left-color: #99E2D0;
-      border-left-style: dotted;
-    }
-    85% { border-top-style: solid ; }
-    90%{
-        border-right-style: solid ;
-        transform: scale(1); 
-        opacity: 1;
-    }
-    95% { border-bottom-style: solid ; }
-    100%{
-      opacity: 0;
-      transform: scale(0.5);
-      border-left-style: solid;
-    }
-  }
