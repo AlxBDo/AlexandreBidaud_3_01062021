@@ -5,14 +5,14 @@ a {
 }
 
 body{
+    @extend .align-ctr;
+    @extend .position-relativ;
+    @extend .no-padding;
     font-family: 'Roboto', sans-serif ;
-    text-align: center;
     margin: 0;
-    padding: 0;
-    position: relative;
 }
 
 h1{ 
-    @extend .titre; 
+    @include titl; 
     margin: 0;
 }

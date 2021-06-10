@@ -1,3 +1,9 @@
+@mixin after-before($content: "", $bg-color: transparent, $color: inherit){
+    content: $content;
+    background-color: $bg-color;
+    color: $color;
+}
+
 @mixin apparition-progressiv($nbr-elmnts, $position-depart){
     @for $position from 1 through $nbr-elmnts {
         &:nth-of-type(#{$position}){
@@ -6,11 +12,17 @@
     }
 }
 
+@mixin border-radius($top-l, $top-r: $top-l, $bott-l: $top-l, $bott-r: $top-l){
+    border-radius: $top-l $top-r $bott-l $bott-r;
+}
+
 @mixin center(){
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
+@mixin font-siz($siz){ font-size: $siz; }
 
 @mixin img-bg-menu($nbr-total-menu) {
     @for $i from 1 through $nbr-total-menu {
@@ -21,10 +33,51 @@
     }
 }
 
+@mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
+    margin: $top $right $bottom $left;
+}
+
+@mixin padding($top, $right: $top, $bottom: $top, $left: $right) {
+    padding: $top $right $bottom $left;
+}
+
+@mixin txt-align($direction){ text-align: $direction; }
+
 @mixin tiroir-coulissant($marg-left, $translate){
     content: "";
     width: 19%;
     transform: translateX($translate);
     margin-left: $marg-left;
     transition: all 300ms ease-in-out;
+}
+
+@mixin titl($f-siz: null, $f-weight: null){
+    font-family: 'Shrikhand', cursive;
+    @if($f-siz != null){ font-size: $f-siz; }
+    @if($f-weight != null){ font-weight: $f-weight; }
+}
+
+@mixin height($height, $max: 0, $min: 0){
+    height: $height;
+    @if($max and $max > 0){
+        max-height: $max;
+    } 
+    @if($min and $min > 0){
+        min-height: $min;
+    } 
+}
+
+@mixin width($width, $max: 0, $min: 0){
+    width: $width;
+    @if($max and $max > 0){
+        max-width: $max;
+    } 
+    @if($min and $min > 0){
+        min-width: $min;
+    } 
+}
+
+@mixin dimensions($width, $height: $width){
+    @include height($height);
+    @include width($width);
 }

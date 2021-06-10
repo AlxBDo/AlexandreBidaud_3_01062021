@@ -1,29 +1,35 @@
+body:not(#accueil) header {
+    @extend .displ-flx;
+    @extend .align-itm-ctr;
+    justify-content: center;
+
+    a { width: 10%; }
+    h1 { width: 80%; }
+}
+
 .desc {
+    @extend .overflo-hid;
+    @extend .txt-overflo-ell;
     width: 72%;
     margin-left: 3%;
     min-width: 45%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    color: $black;
 
     span {
-	    display: block;
+        @extend .overflo-hid;
+	    @extend .displ-blk;
+        @extend .txt-overflo-ell;
+        @extend .font-wght-bld;
 	    font-size: larger;
-	    font-weight: bold;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
+        color: black;
     }
 }
 
-header a { font-size: large; }
-
 #main-header {
-	align-items: center;
+	@extend .align-itm-ctr;
 
     .favori { 
-        height : 35px; 
-        width: 35px;
+        @include dimensions(35px);
         transform: scaleY(1.2) scaleX(1.1);
     }
 
@@ -32,10 +38,7 @@ header a { font-size: large; }
         margin-bottom: 0;
     }
     h2 {
-        @extend .titre;
         width: 75%;
-        font-family: 'Shrikhand', cursive;
-        font-weight: normal;
 
         &::first-letter { @extend .majuscule; }
     }
@@ -43,15 +46,13 @@ header a { font-size: large; }
 
 .menu {
     @extend .bg-clair;
+    @extend .bg-no-repeat;
+    @extend .align-lft;
 	@include img-bg-menu(4);
-	background-repeat: no-repeat;
-	background-position: top;
-	display: flex;
-	text-align: left;
 
     button {
+        @extend .font-lrg;
         font-family: "Roboto", sans-serif;
-        font-size: large;
     }
 
     #entrees a { @include apparition-progressiv(4, 0); }
@@ -62,14 +63,14 @@ header a { font-size: large; }
 
     a {
         @extend .click;
+        @extend .displ-flx;
+        @extend .justif-cont-spac-bet;
+        @extend .overflo-hid;
+        @extend .bg-whit;
         width: 92%;
         margin: 2% auto;
-        background-color: white;
         box-shadow: 1px 1px 14px lightgray;
         border-radius: 15px;
-        display: flex;
-        justify-content: space-between;
-        overflow: hidden;
 
         &:active, &:visited, &:hover {
             &::after { @extend .menu-slct; }
@@ -85,16 +86,16 @@ header a { font-size: large; }
 
         &::before {
             @include tiroir-coulissant(-20%, 130px);
+            @extend .align-ctr;
+            @extend .bg-no-repeat;
+            @extend .bg-siz-contain;
             order: 1;
             align-self: center;
-            text-align: center;
             color: white;
             z-index: 9;
             background-image: url("../img/icons/checked-48.png");
             height: 25px;
             background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
         }
     }
 
@@ -104,54 +105,35 @@ header a { font-size: large; }
         margin-bottom: 2%;
 
         &::after {
-            content: "";
+            @extend .empty-content;
+            @extend .displ-blk;
             border-bottom: 4px solid map-get($color-new_box , bg);
             width: 14%;
-            display: block;
             margin-top: 5px;
         }
     }
 
     section {
         background-color: inherit;
-        display: flex;
+        @extend .displ-flx;
         
         &:not(#main-header) { 
-            flex-direction: column; 
+            @extend .flx-dir-col; 
             padding-top: 3%;
         }
     }
 }
 
 .price {
+    @extend .font-wght-bld;
 	width: 15%;
 	align-self: flex-end;
-    font-weight: bold;
 
     &::after { content: "€"; }
 }
 
-@media (max-width: 1023px){
-    body:not(#accueil) header {
-		a {
-            position: absolute;
-            top: 0;
-            left: 0; 
-            margin-top: 6%;
-            margin-left: 6%;
-        }
-	}
-    #main-header {
-        border-radius: 35px 35px 0 0;
-        justify-content: space-around;
-        margin-top: 51%;
-
-        h2 { font-size: x-large; }
-    }
+@media (max-width: 599px){
     .menu {
-        background-size: contain;
-        flex-direction: column;
-
         button {
             margin: 10% auto 20%;
             padding: 4% 15%;
@@ -159,15 +141,42 @@ header a { font-size: large; }
     }
 }
 
+@media (min-width: 600px) and (max-width: 1023px){
+    .menu {
+        max-width: 90%;
+        margin: auto;
+        button {
+            margin: 6% auto 10%;
+            padding: 2% 5%;
+        }
+    }
+}
+
+@media (max-width: 1023px){
+    body:not(#accueil) header {
+		a { font-size: large; }
+	}
+    #main-header {
+        border-radius: 35px 35px 0 0;
+        justify-content: space-around;
+        margin-top: 51%;
+
+        h2 { @include titl(x-large, normal); }
+    }
+    .menu {
+        display: flex;
+        background-size: contain;
+        flex-direction: column;
+        background-position: top;
+    }
+}
+
 @media (min-width: 1024px){
     body:not(#accueil) header {
-		display: flex;
+        max-width: 1445px;
+        margin: auto;
 
-        a {
-            font-size: large;
-            width: 10%;
-        }
-        h1 { width: 80%; }
+		a { font-size: x-large; }
 	}
     #main-header {
         justify-content: center;
@@ -177,23 +186,25 @@ header a { font-size: large; }
         width: 50%;
 
         h2 {
-            font-size: xx-large;
+            @include titl(xx-large, normal);
             text-align: center;
         }
     }
     .menu {
         background-size: 50%;
         background-position: 0 -100px;
-        margin: auto;
-        flex-wrap: wrap;
         justify-content: stretch;
+        max-width: 1445px;
 
         button {
-            margin: 2% auto;
+            margin: 1% auto 5%;
             padding: 2% 5%;
         }
 
-        section:not(#main-header) { width: 33%; }
+        section:not(#main-header) { 
+            width: 33%;
+            min-height: 375px; 
+        }
     }
 }
 

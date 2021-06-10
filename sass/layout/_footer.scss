@@ -1,19 +1,18 @@
 footer {
+    @include height(100%);
+    @include padding(2%);
+    @extend .align-lft;
 	background-color: map-get($bg-color, fonce);
 	color: white;
-	height: 100%;
-	padding: 2%;
-	text-align: left;
 
     h2{
-        @extend .titre;
-        font-size: large;
+        @include titl(large, normal);
         margin-left: 5%;
     }
 
     ul {
+        @extend .no-padding;
         list-style: none;
-        padding: 0;
 
         li{
             margin: 10px 0;
@@ -21,13 +20,13 @@ footer {
         }
 
         i {
-            font-size: small;
+            @extend .font-sml;
             width: 25px;
         }
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 1023px){
     footer { 
         ul { margin: 5% 5% 10%; }
     }

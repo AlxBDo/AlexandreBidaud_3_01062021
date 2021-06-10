@@ -1,29 +1,21 @@
 #accueil{
     &::after, &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        @extend .position-absolu-all-spac;
         transform: scale(0);
     }
     &::after {
-        content: "ohmyfood";
+        @include dimensions(185px);
+        @include border-radius(120px);
+        @include padding(25px);
+        @include after-before("ohmyfood", $color-primary, white);
+        @include titl(xx-large);
         z-index: 10;
-        font-size: xx-large;
-        padding: 25px;
-        font-family: "Shrikhand", cursive;
-        background: $color-primary;
-        width: 185px;
-        color: white;
-        height: 185px;
         line-height: 185px;
-        border-radius: 120px;
         border: 5px solid;
         animation: cooking 2700ms both;
     }
     &::before {
-        content: "";
-        background-color: white;
+        @include after-before("", white);
         z-index: 9;
         bottom: 0;
         animation-name: fin_loader;
@@ -35,24 +27,18 @@
 }
 
 .favori{
+  @include dimensions(28px, 39px);
   @extend .click;
-  position: relative;
-  width: 28px;
-  overflow: hidden;
-  height: 39px;
+  @extend .position-relativ;
+  @extend .overflo-hid;
   margin-right: 2%;
 
   &::after, &::before {
-      width: 28px;
-      height: 38px;
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-repeat: no-repeat;
-      background-size: contain;
+    @include dimensions(28px, 38px);
+    @include after-before;
+    @extend .position-absolu-all-spac;
+    @extend .bg-no-repeat;
+    @extend .bg-siz-contain;
   }
   &::after {
       background-image: url("../img/icons/fav-slct.png");
@@ -67,7 +53,8 @@
   &:hover::after {
       transition: all 300ms ease-in-out;
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1.1);
+      margin-top: 1px;
   }
 }
 
@@ -76,10 +63,10 @@
   > div {
       @extend .bg-clair;
       @extend .click;
+      @extend .align-lft;
+      @extend .position-relativ;
       border-radius: 25px;
       box-shadow: 1px 3px 8px lightgray;
-      text-align: left;
-      position: relative;
 
       &:first-of-type{
           &::before {
@@ -89,9 +76,7 @@
 
       &:hover {
           background-color: rgba(147, 86, 220, 0.15);
-          i {
-              color: $color-primary;
-          }
+          i { color: $color-primary; }
       }
 
       &:nth-of-type(2){
@@ -107,24 +92,24 @@
       }
 
       &::before {
-          padding: 6px 10px;
-          border-radius: 20px;
+          @include border-radius(20px);
+          @include padding(6px, 10px);
+          @include margin(-2px, 7px, 0, -14px);
+          @extend .font-sml;
           background-color: $color-primary;
           color: white;
-          font-size: small;
           float: left;
-          margin: -2px 7px 0 -14px;
       }
   }
 
   h2 {
-      text-align: left;
+      @extend .align-lft;
       margin-left: 5%;
   }
 
   i {
+    @extend .align-ctr;
       width: 15%;
-      text-align: center; 
       font-size: larger;
       color: gray;
   }
@@ -139,39 +124,39 @@
 
 #restos {
   @extend .bg-clair;
-  display: flex;
+  @extend .displ-flx;
 
   a {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      @extend .displ-flx;
+      @extend .overflo-hid;
+      @extend .flx-dir-col;
+      @extend .position-relativ;
+      @extend .bg-whit;
       margin: 2% auto 3%;
-      background-color: white;
       border-radius: 20px;
       box-shadow: 1px 1px 5px lightgray;
-      position: relative;
   }
 
   div {
-      height: 30%;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
+    @extend .displ-flx;
+    @extend .align-itm-ctr;
+    height: 30%;
+    justify-content: space-around;
 
       p{
           &:first-of-type {
-              text-align: left;
+              @extend .align-lft;
               width: 70%; 
           }
 
       }
   }
 
-  h2 { text-align: left; }
+  h2 { @extend .align-lft; }
 
   i {
+    @extend .displ-blk;
       font-size: 23px;
-      display: block;
       margin-bottom: 2px;
 
       &:last-of-type {
@@ -180,36 +165,33 @@
   }
 
   img {
-      width: 100%;
-      object-fit: cover;
-      height: 70%;
-      overflow: hidden;
+    @include dimensions(100%, 70%);
+    @extend .overflo-hid;
+    object-fit: cover;
   }
 
   .new::before {
-      content: "Nouveau";
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background-color: map-get($color-new_box, bg);
-      padding: 7px 12px;
-      color: map-get($color-new_box, color);
-      font-weight: bold;
-      font-size: small;
-      border-radius: 2px;
+    @include after-before("Nouveau", map-get($color-new_box, bg), map-get($color-new_box, color));
+    @extend .font-sml;
+    @extend .font-wght-bld;
+    @extend .position-absolu;
+    top: 15px;
+    right: 15px;
+    padding: 7px 12px;
+    border-radius: 2px;
   }
   
   span {
       display: block;
-      font-weight: bold;
+      @extend .font-wght-bld;
       margin-bottom: 5px;
   }
   
 }
 
 #search {
-  display: flex;
-  flex-direction: column;
+  @extend .displ-flx;
+  @extend .flx-dir-col;
 
   > div {
       @extend .bg-clair;
@@ -217,26 +199,36 @@
       div {
           max-width: 80%;
           margin: auto;
-          font-weight: lighter;
+          @extend .font-wght-lghtr;
       }
 
   }
 
   button { padding: 4% 7% 5%; }
 
-  input {
+  
+  form {
+    @extend .displ-flx;
+    background: linear-gradient(to bottom, #cfcfcf 0%, #eaeaea 10%, #eaeaea 100%);
+    color: #353535;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    justify-content: center;
+  
+    input {
+      @extend .font-wght-bld;
+      @extend .no-padding;
+      @extend .align-ctr;
+      @extend .click;
       border: none;
       font-size: medium;
-      font-weight: bold;
       background-color: transparent;
-      text-align: center;
-      padding: 0;
       color: #353535;
-      @extend .click;
-
-      &:focus-visible {
-          outline: none;
-      }
+  
+        &:focus-visible {
+            outline: none;
+        }
+    }
   }
 }
 
@@ -282,7 +274,7 @@
     }
   }
   #restos { 
-    flex-direction: column;  
+    flex-direction: column; 
 
     a {
         width: 90%;
@@ -348,11 +340,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 90%;
     margin: auto;
     align-items: flex-start;
     align-content: space-around;
     overflow: hidden;
+
+    &:not(.menu){
+      width: 90%;
+    }
   }
   #restos {
     order: 3;

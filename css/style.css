@@ -1,10 +1,72 @@
 @charset "UTF-8";
+.align-ctr, .menu a::before, #search form input, #fonctionnement i, body {
+  text-align: center;
+}
+
+.align-lft, .menu, #restos h2, #restos div p:first-of-type, #fonctionnement h2, #fonctionnement > div, footer {
+  text-align: left;
+}
+
+.align-itm-ctr, #main-header, body:not(#accueil) header, #restos div {
+  align-items: center;
+}
+
 .bg-clair, .menu, #search > div, #restos, #fonctionnement > div {
   background-color: #f6f6f6;
 }
 
-.click, .menu a, #search input, #fonctionnement > div, .favori, input, button {
+.bg-no-repeat, .menu a::before, .menu, .favori::after, .favori::before {
+  background-repeat: no-repeat;
+}
+
+.bg-siz-contain, .menu a::before, .favori::after, .favori::before {
+  background-size: contain;
+}
+
+.bg-whit, .menu a, #restos a {
+  background-color: white;
+}
+
+.click, .menu a, #search form input, #fonctionnement > div, .favori, input, button {
   cursor: pointer;
+}
+
+.displ-blk, .menu h3::after, .desc span, #restos i {
+  display: block;
+}
+
+.displ-flx, .menu section, .menu a, body:not(#accueil) header, #search form, #search, #restos div, #restos a, #restos {
+  display: flex;
+}
+
+.empty-content, .menu h3::after {
+  content: "";
+  background-color: transparent;
+  color: inherit;
+}
+
+.flx-dir-col, .menu section:not(#main-header), #search, #restos a {
+  flex-direction: column;
+}
+
+.font-sml, #restos .new::before, #fonctionnement > div::before, footer ul i {
+  font-size: small;
+}
+
+.font-lrg, .menu button {
+  font-size: large;
+}
+
+.font-wght-bld, .price, .desc span, #search form input, #restos span, #restos .new::before {
+  font-weight: bold;
+}
+
+.font-wght-lghtr, #search > div div {
+  font-weight: lighter;
+}
+
+.justif-cont-spac-bet, .menu a {
+  justify-content: space-between;
 }
 
 .majuscule, .menu h3, #main-header h2::first-letter {
@@ -24,9 +86,31 @@
   margin-right: 0px;
 }
 
-.titre, #main-header h2, footer h2, h1 {
-  font-family: "Shrikhand", cursive;
-  font-weight: normal;
+.no-padding, #search form input, footer ul, body {
+  padding: 0;
+}
+
+.overflo-hid, .menu a, .desc span, .desc, #restos img, #restos a, .favori {
+  overflow: hidden;
+}
+
+.position-absolu, #restos .new::before, .position-absolu-all-spac, .favori::after, .favori::before, #accueil::after, #accueil::before {
+  position: absolute;
+}
+
+.position-absolu-all-spac, .favori::after, .favori::before, #accueil::after, #accueil::before {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.position-relativ, #restos a, #fonctionnement > div, .favori, body {
+  position: relative;
+}
+
+.txt-overflo-ell, .desc span, .desc {
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @keyframes cooking {
@@ -75,10 +159,11 @@
   }
   90% {
     opacity: 1;
+    transform: scale(1);
     color: #9356DC;
   }
   100% {
-    transform: scale(1);
+    transform: scale(0);
     opacity: 0;
     color: #9356DC;
   }
@@ -105,23 +190,12 @@ a {
 
 body {
   font-family: "Roboto", sans-serif;
-  text-align: center;
   margin: 0;
-  padding: 0;
-  position: relative;
 }
 
 h1 {
+  font-family: "Shrikhand", cursive;
   margin: 0;
-}
-
-#search form {
-  background: linear-gradient(to bottom, #cfcfcf 0%, #eaeaea 10%, #eaeaea 100%);
-  display: flex;
-  color: #353535;
-  padding-top: 4%;
-  padding-bottom: 4%;
-  justify-content: center;
 }
 
 header picture {
@@ -142,30 +216,29 @@ header picture {
   }
 }
 footer {
+  height: 100%;
+  padding: 2% 2% 2% 2%;
   background-color: #353535;
   color: white;
-  height: 100%;
-  padding: 2%;
-  text-align: left;
 }
 footer h2 {
+  font-family: "Shrikhand", cursive;
   font-size: large;
+  font-weight: normal;
   margin-left: 5%;
 }
 footer ul {
   list-style: none;
-  padding: 0;
 }
 footer ul li {
   margin: 10px 0;
   font-size: smaller;
 }
 footer ul i {
-  font-size: small;
   width: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   footer ul {
     margin: 5% 5% 10%;
   }
@@ -191,30 +264,27 @@ button:hover {
 }
 
 #accueil::after, #accueil::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   transform: scale(0);
 }
 #accueil::after {
-  content: "ohmyfood";
-  z-index: 10;
-  font-size: xx-large;
-  padding: 25px;
-  font-family: "Shrikhand", cursive;
-  background: #9356DC;
-  width: 185px;
-  color: white;
   height: 185px;
+  width: 185px;
+  border-radius: 120px 120px 120px 120px;
+  padding: 25px 25px 25px 25px;
+  content: "ohmyfood";
+  background-color: #9356DC;
+  color: white;
+  font-family: "Shrikhand", cursive;
+  font-size: xx-large;
+  z-index: 10;
   line-height: 185px;
-  border-radius: 120px;
   border: 5px solid;
   animation: cooking 2700ms both;
 }
 #accueil::before {
   content: "";
   background-color: white;
+  color: inherit;
   z-index: 9;
   bottom: 0;
   animation-name: fin_loader;
@@ -225,23 +295,16 @@ button:hover {
 }
 
 .favori {
-  position: relative;
-  width: 28px;
-  overflow: hidden;
   height: 39px;
+  width: 28px;
   margin-right: 2%;
 }
 .favori::after, .favori::before {
-  width: 28px;
   height: 38px;
+  width: 28px;
   content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: transparent;
+  color: inherit;
 }
 .favori::after {
   background-image: url("../img/icons/fav-slct.png");
@@ -255,14 +318,13 @@ button:hover {
 .favori:hover::after {
   transition: all 300ms ease-in-out;
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.1);
+  margin-top: 1px;
 }
 
 #fonctionnement > div {
   border-radius: 25px;
   box-shadow: 1px 3px 8px lightgray;
-  text-align: left;
-  position: relative;
 }
 #fonctionnement > div:first-of-type::before {
   content: "1";
@@ -280,21 +342,18 @@ button:hover {
   content: "3";
 }
 #fonctionnement > div::before {
-  padding: 6px 10px;
-  border-radius: 20px;
+  border-radius: 20px 20px 20px 20px;
+  padding: 6px 10px 6px 10px;
+  margin: -2px 7px 0 -14px;
   background-color: #9356DC;
   color: white;
-  font-size: small;
   float: left;
-  margin: -2px 7px 0 -14px;
 }
 #fonctionnement h2 {
-  text-align: left;
   margin-left: 5%;
 }
 #fonctionnement i {
   width: 15%;
-  text-align: center;
   font-size: larger;
   color: gray;
 }
@@ -304,86 +363,65 @@ button:hover {
   width: 60%;
 }
 
-#restos {
-  display: flex;
-}
 #restos a {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
   margin: 2% auto 3%;
-  background-color: white;
   border-radius: 20px;
   box-shadow: 1px 1px 5px lightgray;
-  position: relative;
 }
 #restos div {
   height: 30%;
-  display: flex;
-  align-items: center;
   justify-content: space-around;
 }
 #restos div p:first-of-type {
-  text-align: left;
   width: 70%;
-}
-#restos h2 {
-  text-align: left;
 }
 #restos i {
   font-size: 23px;
-  display: block;
   margin-bottom: 2px;
 }
 #restos i:last-of-type {
   color: #9356DC;
 }
 #restos img {
+  height: 70%;
   width: 100%;
   object-fit: cover;
-  height: 70%;
-  overflow: hidden;
 }
 #restos .new::before {
   content: "Nouveau";
-  position: absolute;
+  background-color: #99e2d0;
+  color: #38917b;
   top: 15px;
   right: 15px;
-  background-color: #99e2d0;
   padding: 7px 12px;
-  color: #38917b;
-  font-weight: bold;
-  font-size: small;
   border-radius: 2px;
 }
 #restos span {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
-#search {
-  display: flex;
-  flex-direction: column;
-}
 #search > div div {
   max-width: 80%;
   margin: auto;
-  font-weight: lighter;
 }
 #search button {
   padding: 4% 7% 5%;
 }
-#search input {
+#search form {
+  background: linear-gradient(to bottom, #cfcfcf 0%, #eaeaea 10%, #eaeaea 100%);
+  color: #353535;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  justify-content: center;
+}
+#search form input {
   border: none;
   font-size: medium;
-  font-weight: bold;
   background-color: transparent;
-  text-align: center;
-  padding: 0;
   color: #353535;
 }
-#search input:focus-visible {
+#search form input:focus-visible {
   outline: none;
 }
 
@@ -505,11 +543,13 @@ button:hover {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 90%;
     margin: auto;
     align-items: flex-start;
     align-content: space-around;
     overflow: hidden;
+  }
+  main:not(.menu) {
+    width: 90%;
   }
 
   #restos {
@@ -544,30 +584,27 @@ button:hover {
     margin: 2%;
   }
 }
+body:not(#accueil) header {
+  justify-content: center;
+}
+body:not(#accueil) header a {
+  width: 10%;
+}
+body:not(#accueil) header h1 {
+  width: 80%;
+}
+
 .desc {
   width: 72%;
   margin-left: 3%;
   min-width: 45%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  color: #353535;
 }
 .desc span {
-  display: block;
   font-size: larger;
-  font-weight: bold;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  color: black;
 }
 
-header a {
-  font-size: large;
-}
-
-#main-header {
-  align-items: center;
-}
 #main-header .favori {
   height: 35px;
   width: 35px;
@@ -579,14 +616,6 @@ header a {
 }
 #main-header h2 {
   width: 75%;
-  font-family: "Shrikhand", cursive;
-  font-weight: normal;
-}
-.menu {
-  background-repeat: no-repeat;
-  background-position: top;
-  display: flex;
-  text-align: left;
 }
 .menu#resto1 {
   background-image: url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
@@ -603,7 +632,6 @@ header a {
 }
 .menu button {
   font-family: "Roboto", sans-serif;
-  font-size: large;
 }
 .menu #entrees a:nth-of-type(1) {
   animation: apparition 500ms 150ms backwards;
@@ -638,12 +666,8 @@ header a {
 .menu a {
   width: 92%;
   margin: 2% auto;
-  background-color: white;
   box-shadow: 1px 1px 14px lightgray;
   border-radius: 15px;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
 }
 .menu a::after {
   content: "";
@@ -661,51 +685,55 @@ header a {
   transition: all 300ms ease-in-out;
   order: 1;
   align-self: center;
-  text-align: center;
   color: white;
   z-index: 9;
   background-image: url("../img/icons/checked-48.png");
   height: 25px;
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 .menu h3 {
   margin-left: 4%;
   margin-bottom: 2%;
 }
 .menu h3::after {
-  content: "";
   border-bottom: 4px solid #99e2d0;
   width: 14%;
-  display: block;
   margin-top: 5px;
 }
 .menu section {
   background-color: inherit;
-  display: flex;
 }
 .menu section:not(#main-header) {
-  flex-direction: column;
   padding-top: 3%;
 }
 
 .price {
   width: 15%;
   align-self: flex-end;
-  font-weight: bold;
 }
 .price::after {
   content: "€";
 }
 
+@media (max-width: 599px) {
+  .menu button {
+    margin: 10% auto 20%;
+    padding: 4% 15%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .menu {
+    max-width: 90%;
+    margin: auto;
+  }
+  .menu button {
+    margin: 6% auto 10%;
+    padding: 2% 5%;
+  }
+}
 @media (max-width: 1023px) {
   body:not(#accueil) header a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 6%;
-    margin-left: 6%;
+    font-size: large;
   }
 
   #main-header {
@@ -714,28 +742,25 @@ header a {
     margin-top: 51%;
   }
   #main-header h2 {
+    font-family: "Shrikhand", cursive;
     font-size: x-large;
+    font-weight: normal;
   }
 
   .menu {
+    display: flex;
     background-size: contain;
     flex-direction: column;
-  }
-  .menu button {
-    margin: 10% auto 20%;
-    padding: 4% 15%;
+    background-position: top;
   }
 }
 @media (min-width: 1024px) {
   body:not(#accueil) header {
-    display: flex;
+    max-width: 1445px;
+    margin: auto;
   }
   body:not(#accueil) header a {
-    font-size: large;
-    width: 10%;
-  }
-  body:not(#accueil) header h1 {
-    width: 80%;
+    font-size: x-large;
   }
 
   #main-header {
@@ -746,23 +771,25 @@ header a {
     width: 50%;
   }
   #main-header h2 {
+    font-family: "Shrikhand", cursive;
     font-size: xx-large;
+    font-weight: normal;
     text-align: center;
   }
 
   .menu {
     background-size: 50%;
     background-position: 0 -100px;
-    margin: auto;
-    flex-wrap: wrap;
     justify-content: stretch;
+    max-width: 1445px;
   }
   .menu button {
-    margin: 2% auto;
+    margin: 1% auto 5%;
     padding: 2% 5%;
   }
   .menu section:not(#main-header) {
     width: 33%;
+    min-height: 375px;
   }
 }
 @keyframes apparition {
