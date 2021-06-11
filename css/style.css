@@ -671,7 +671,7 @@ body:not(#accueil) header h1 {
 }
 .menu a::after {
   content: "";
-  width: 19%;
+  width: 20%;
   transform: translateX(130px);
   margin-left: -20%;
   transition: all 300ms ease-in-out;
@@ -679,7 +679,7 @@ body:not(#accueil) header h1 {
 }
 .menu a::before {
   content: "";
-  width: 19%;
+  width: 20%;
   transform: translateX(130px);
   margin-left: -20%;
   transition: all 300ms ease-in-out;

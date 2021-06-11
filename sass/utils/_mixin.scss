@@ -45,7 +45,7 @@
 
 @mixin tiroir-coulissant($marg-left, $translate){
     content: "";
-    width: 19%;
+    width: 20%;
     transform: translateX($translate);
     margin-left: $marg-left;
     transition: all 300ms ease-in-out;
